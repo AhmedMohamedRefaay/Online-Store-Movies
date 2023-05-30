@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace Online__Store_Movies.Models.Domain
+namespace MovieStoreMvc.Models.Domain
 {
-    public class ApplicationUser:IdentityUser
+    public class ApplicationUser : IdentityUser
     {
-        public string Name { get; set; }
+        public string Name{ get; set; }
     }
 }

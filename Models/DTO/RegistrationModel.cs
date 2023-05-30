@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Online__Store_Movies.Models.DTO
+namespace MovieStoreMvc.Models.DTO
 {
     public class RegistrationModel
     {

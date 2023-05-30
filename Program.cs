@@ -1,24 +1,28 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Online__Store_Movies.Models.Domain;
-using Online__Store_Movies.Repository.Abstract;
-using Online__Store_Movies.Repository.Implementation;
+using MovieStoreMvc.Models.Domain;
+using MovieStoreMvc.Repositories.Abstract;
+using MovieStoreMvc.Repositories.Implementation;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<MoviesDb>(
-    option => option.UseSqlServer(builder.Configuration.GetConnectionString("MoviesDataBase"))
-    );
+builder.Services.AddScoped<IUserAuthenticationService, UserAuthenticationService>();
+builder.Services.AddScoped<IGenreService, GenreService>();
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IMovieService, MovieService>();
 
+builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn")));
+
+// For Identity  
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<MoviesDb>().AddDefaultTokenProviders();
+    .AddEntityFrameworkStores<DatabaseContext>()
+    .AddDefaultTokenProviders();
 
-builder.Services.AddScoped<IUserAuthntication, UserAuthntication>();
+//builder.Services.ConfigureApplicationCookie(options => options.LoginPath = "/UserAuthentication/Login");
 
-builder.Services.AddScoped<IGenereService, GenereService>();
-//builder.Services.ConfigureApplicationCookie(option => option.LoginPath = "/UserAuthntication/login");
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Online__Store_Movies.Models.DTO
+namespace MovieStoreMvc.Models.DTO
 {
     public class LoginModel
     {
@@ -9,5 +9,6 @@ namespace Online__Store_Movies.Models.DTO
 
         [Required]
         public string? Password { get; set; }
+       
     }
 }

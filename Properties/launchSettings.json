@@ -3,16 +3,16 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:12679",
-      "sslPort": 44304
+      "applicationUrl": "http://localhost:21602",
+      "sslPort": 44331
     }
   },
   "profiles": {
-    "Online__Store_Movies": {
+    "MovieStoreMvc": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7032;http://localhost:5038",
+      "applicationUrl": "https://localhost:7095;http://localhost:5095",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
