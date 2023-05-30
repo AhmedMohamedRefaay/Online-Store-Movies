@@ -3,12 +3,9 @@ using MovieStoreMvc.Models.DTO;
 
 namespace MovieStoreMvc.Repositories.Abstract
 {
-    public interface IGenreService
+    public interface IGenreService:IService<Genre>
     {
-       bool Add(Genre model);
-       bool Update(Genre model);
-       Genre GetById(int id);
-       bool Delete(int id);
+      
        IQueryable<Genre> List();
 
     }
